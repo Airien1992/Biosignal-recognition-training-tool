@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button Width="50" Height="50"></Button>
+        <Button Width="50" Height="50">Keuze 1</Button>
+        <Button Width="50" Height="50" Margin="341,134,126,135">Keuze 2</Button>
+        
 
     </Grid>
 </Window>

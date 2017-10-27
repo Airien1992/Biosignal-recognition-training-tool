@@ -7,11 +7,12 @@
         mc:Ignorable="d"
         Title="Trainingsessie" Height="350" Width="525">
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
-            <ComboBox Width="417">
-                <ComboBoxItem Content="ComboBox Item #1"/>
-                <ComboBoxItem IsSelected="True" Content="ComboBox Item #2"/>
-                <ComboBoxItem Content="ComboBox Item #3"/>
+        <StackPanel Height="20" Width="70" Margin="50,146,397,153">
+            <ComboBox Width="70" SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBoxItem IsSelected="True" Content="Keuze 1"/>
+                <ComboBoxItem Content="Keuze 2"/>
+                <ComboBoxItem Content="Keuze 3"/>
+                <ComboBoxItem Content="Keuze 4"/>
             </ComboBox>
         </StackPanel>
 
@@ -20,10 +21,10 @@
                         Luister naar ieder geluidje en duid de correcte aan.
         </TextBlock>
 
-        <Button Width="50" Height="50" Margin="50,211,420,58" Click="Button_Click">Keuze 1</Button>
-        <Button Width="50" Height="50" Margin="169,211,298,58" Click="Button_Click_1">Keuze 2</Button>
-        <Button Width="50" Height="50" Margin="291,211,176,58" Click="Button_Click_2">Keuze 3</Button>
-        <Button Width="50" Height="50" Margin="419,211,48,58" Click="Button_Click_3">Keuze 4</Button>
+        <Button Width="50" Height="20" Margin="50,211,420,58" Click="Button_Click">Keuze 1</Button>
+        <Button Width="50" Height="20" Margin="169,211,298,58" Click="Button_Click_1">Keuze 2</Button>
+        <Button Width="50" Height="20" Margin="291,211,176,58" Click="Button_Click_2">Keuze 3</Button>
+        <Button Width="50" Height="20" Margin="419,211,48,58" Click="Button_Click_3">Keuze 4</Button>
         
 
     </Grid>

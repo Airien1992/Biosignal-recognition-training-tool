@@ -25,27 +25,23 @@ namespace WpfApplication1
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+        private void Button_Click1(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Button_Click2(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Button_Click3(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Button_Click4(object sender, RoutedEventArgs e)
         {
 
         }

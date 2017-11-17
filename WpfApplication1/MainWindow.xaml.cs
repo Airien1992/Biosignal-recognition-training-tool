@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -31,11 +33,24 @@ namespace WpfApplication1
         }
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
+            
 
         }
         private void Button_Click2(object sender, RoutedEventArgs e)
         {
+            // Displays an OpenFileDialog so the user can select a Cursor.  
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Filter = "Wav|*.wav";
+            openFileDialog1.Title = "Select a wav";
 
+            // Show the Dialog.  
+            // If the user clicked OK in the dialog and  
+            // a .CUR file was selected, open it.  
+            if (openFileDialog1.ShowDialog() == DialogResult)
+            {
+                SoundPlayer simpleSound = new SoundPlayer(openFileDialog1.OpenFile());
+                simpleSound.Play();
+            }
         }
         private void Button_Click3(object sender, RoutedEventArgs e)
         {

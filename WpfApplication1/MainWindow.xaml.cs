@@ -57,6 +57,7 @@ namespace WpfApplication1
             if (openFileDialog1.ShowDialog() == DialogResult)
             {
                 SoundPlayer simpleSound = new SoundPlayer(openFileDialog1.OpenFile());
+                simpleSound.Load();
                 simpleSound.Play();
             }
         }

@@ -30,12 +30,6 @@ namespace WpfApplication1
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-
-///            MediaPlayer player = new MediaPlayer();
-///            player.Open(new Uri(@"WpfApplication1/Heart sounds wav/001. Normal Heart Sound- normal speed.wav", UriKind.Relative));
-///            player.Play();
-
-
         }
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
@@ -54,10 +48,9 @@ namespace WpfApplication1
             // Show the Dialog.  
             // If the user clicked OK in the dialog and  
             // a .CUR file was selected, open it.  
-            if (openFileDialog1.ShowDialog() == DialogResult)
+            if (openFileDialog1.ShowDialog() != DialogResult)
             {
-                SoundPlayer simpleSound = new SoundPlayer();
-                simpleSound.SoundLocation = openFileDialog1.FileName;
+                SoundPlayer simpleSound = new SoundPlayer(openFileDialog1.FileName);
                 simpleSound.Load();
                 simpleSound.Play();
             }

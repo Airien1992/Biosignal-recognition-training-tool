@@ -63,5 +63,9 @@ namespace WpfApplication1
         {
 
         }
+        private void Next_Button(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

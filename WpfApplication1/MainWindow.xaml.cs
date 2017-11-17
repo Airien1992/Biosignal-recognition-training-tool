@@ -56,7 +56,8 @@ namespace WpfApplication1
             // a .CUR file was selected, open it.  
             if (openFileDialog1.ShowDialog() == DialogResult)
             {
-                SoundPlayer simpleSound = new SoundPlayer(openFileDialog1.OpenFile());
+                SoundPlayer simpleSound = new SoundPlayer();
+                simpleSound.SoundLocation = openFileDialog1.FileName;
                 simpleSound.Load();
                 simpleSound.Play();
             }

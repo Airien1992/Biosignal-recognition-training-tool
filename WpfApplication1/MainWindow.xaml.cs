@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,15 +23,30 @@ namespace WpfApplication1
     {
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();           
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
+
+///            MediaPlayer player = new MediaPlayer();
+///            player.Open(new Uri(@"WpfApplication1/Heart sounds wav/001. Normal Heart Sound- normal speed.wav", UriKind.Relative));
+///            player.Play();
+
 
         }
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
+            SoundPlayer p = new SoundPlayer(@"C:\Users\angel\Documents\biomedische\Biosignal-recognition-training-tool\WpfApplication1\Heart sounds wav\001. Normal Heart Sound- normal speed.wav");
+            p.Load();
+            p.Play();
 
         }
         private void Button_Click2(object sender, RoutedEventArgs e)

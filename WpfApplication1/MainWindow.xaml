@@ -26,7 +26,7 @@
             </ComboBox>
         </StackPanel>
 
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Margin="33,59,36,233">
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Margin="33,59,36,233">
                         Luister naar ieder geluidje en duidt de correcte aan.
         </TextBlock>
     </Grid>

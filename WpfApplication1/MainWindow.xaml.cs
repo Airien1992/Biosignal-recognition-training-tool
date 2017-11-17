@@ -27,45 +27,11 @@ namespace WpfApplication1
             InitializeComponent();           
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Button_Start(object sender, RoutedEventArgs e)
         {
-
-        }
-        private void Button_Click1(object sender, RoutedEventArgs e)
-        {
-            SoundPlayer p = new SoundPlayer(@"C:\Users\angel\Documents\biomedische\Biosignal-recognition-training-tool\WpfApplication1\Heart sounds wav\001. Normal Heart Sound- normal speed.wav");
-            p.Load();
-            p.Play();
-
-        }
-        private void Button_Click2(object sender, RoutedEventArgs e)
-        {
-            // Displays an OpenFileDialog so the user can select a Cursor.  
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "Wav|*.wav";
-            openFileDialog1.Title = "Select a wav";
-
-            // Show the Dialog.  
-            // If the user clicked OK in the dialog and  
-            // a .CUR file was selected, open it.  
-            if (openFileDialog1.ShowDialog() != DialogResult)
-            {
-                SoundPlayer simpleSound = new SoundPlayer(openFileDialog1.FileName);
-                simpleSound.Load();
-                simpleSound.Play();
-            }
-        }
-        private void Button_Click3(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void Button_Click4(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void Next_Button(object sender, RoutedEventArgs e)
-        {
-
+            Training tr = new Training();
+            tr.Show();
+            this.Close();
         }
     }
 }

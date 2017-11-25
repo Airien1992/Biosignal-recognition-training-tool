@@ -1,7 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.Core.Objects;
+///using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -23,30 +23,45 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
-        SoundEntity dataEntities = new SoundEntity();
+ ///       SoundEntity dataEntities = new SoundEntity();
         public MainWindow()
         {
             InitializeComponent();           
         }
 
-        private void Button_Start(object sender, RoutedEventArgs e)
+        private void Button_Start1(object sender, RoutedEventArgs e)
         {
             Training tr = new Training();
             tr.Show();
             this.Close();
         }
+        private void Button_Start2(object sender, RoutedEventArgs e)
+        {
+            Learning lr = new Learning();
+            lr.Show();
+            this.Close();
+        }
+        private void Button_Start3(object sender, RoutedEventArgs e)
+        {
+            Exam ex = new Exam();
+            ex.Show();
+            this.Close();
+        }
+
+
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
-            var query =
-    from table in dataEntities.Tables
-    where table.Type == "Heart"
-    orderby table.Afwijking
-    select new { table.Id, table.Type, CategoryName = table.Type, table.duur };
+ ///           var query =
+ ///   from table in dataEntities.Tables
+///    where table.Type == "Heart"
+///    orderby table.Afwijking
+///    select new { table.Id, table.Type, CategoryName = table.Type, table.duur };
 
-            dataGrid1.ItemsSource = query.ToList();
+ ///           dataGrid1.ItemsSource = query.ToList();
 
         }
+
     }
 }

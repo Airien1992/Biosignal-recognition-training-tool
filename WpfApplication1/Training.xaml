@@ -20,21 +20,16 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
-                <Button Click="Next_Button" Width="100" Height="30" >Next</Button>
+                <Button Click="Next_Button" Width="100" Height="30" Background="Yellow">Next</Button>
             </StackPanel>
 
             <MediaElement x:Name="Audio" Grid.RowSpan="1" LoadedBehavior="Manual" Margin="0,201,0,0"/>
             <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
-                <Button x:Name="btn1" Content="Keuze 1" Click="Button_Click1" Width="100" Height="30"/>
-                <Button x:Name="btn2" Content="Keuze 2" Click="Button_Click2" Width="100" Height="30"/>
-                <Button x:Name="btn3" Content="Keuze 3" Click="Button_Click3" Width="100" Height="30"/>
-                <Button x:Name="btn4" Content="Keuze 4" Click="Button_Click4" Width="100" Height="30"/>
-                <ComboBox Width="100" Height ="30" SelectionChanged="ComboBox_SelectionChanged">
-                    <ComboBoxItem IsSelected="True" Content="Keuze 1"/>
-                    <ComboBoxItem Content="Keuze 2"/>
-                    <ComboBoxItem Content="Keuze 3"/>
-                    <ComboBoxItem Content="Keuze 4"/>
-                </ComboBox>
+            <Button x:Name="btn1" Content="Play" Click="Button_Click1" Width="100" Height="30" Background="LightSkyBlue"/>
+            <Button x:Name="btn2" Content="Pause" Click="Button_Click2" Width="100" Height="30" Background="LightSkyBlue"/>
+            <Button x:Name="btn3" Content="Stop" Click="Button_Click3" Width="100" Height="30" Background="LightSkyBlue"/>
+            <Button x:Name="btn4" Content="Keuze 4" Click="Button_Click4" Width="100" Height="30" Background="LightSkyBlue"/>
+            
             </StackPanel>
         </Grid>
 

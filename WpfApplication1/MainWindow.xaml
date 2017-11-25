@@ -5,29 +5,62 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="Trainingsessie" Height="350" Width="525">
-    
-    <Grid>
+        Title="Biosignal recognition training tool" Height="350" Width="525" >
+
+    <Grid Background="RoyalBlue">
         <Grid.RowDefinitions>
-            <RowDefinition Height="226*"/>
-            <RowDefinition Height="226*"/>
+            <RowDefinition Height="526*"/>
+            <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
- 
-            <TabControl>
-                <TabItem Header="Training">
-                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Width="500" TextWrapping="Wrap">
-                        Welkom in de trainingssessie. In deze module krijg je de mogelijkheid om vertrouwt te geraken met de geluiden die ter berschikking zijn.
+
+        <TabControl Background="White">
+            <TabItem Header="Training" Background="LightSkyBlue">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="500*"/>
+                        <RowDefinition Height="500*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Width="500" TextWrapping="Wrap" Grid.Row="0">
+                        Welkom in de trainingssessie. In deze module krijg je de mogelijkheid om vertrouwt te raken met de geluiden die ter berschikking zijn.
                     </TextBlock>
+                    <Button x:Name="start" Content="START" Click="Button_Start1" Width="200" Height="30" Grid.Row="1" Background="Yellow"/>
+                    <Image Source="UGENT.PNG" Height="150" Width="150" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="1" />
 
-                </TabItem>
-                <TabItem Header="Learning" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Learning" Background="LightSkyBlue">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="500*"/>
+                        <RowDefinition Height="500*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Width="500" TextWrapping="Wrap" Grid.Row="0">
+                        Welkom in de learningssessie. In deze module krijg je de mogelijkheid om een test af te leggen. Het is een multiple choice test en iedere keer als je een antwoord geeft wordt de juiste gehighlight.
+                    </TextBlock>
+                    <Button x:Name="start1" Content="START" Click="Button_Start2" Width="200" Height="30" Grid.Row="1" Background="Yellow"/>
+                    <Image Source="UGENT.PNG" Height="150" Width="150" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="1" />
+                </Grid>
+            </TabItem>
 
-                <TabItem Header="Exam" />
-            </TabControl>
-        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
-            <Button x:Name="start" Content="START" Click="Button_Start" Width="500" Height="30"/>
-        </StackPanel>
+
+            <TabItem Header="Exam" Background="LightSkyBlue">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="500*"/>
+                        <RowDefinition Height="500*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Width="500" TextWrapping="Wrap" Grid.Row="0">
+                        Welkom in de examssessie. In deze module kan je een examen afleggen. De eindscore zal ter beschikking zijn indien het examen is afgerond.
+                    </TextBlock>
+                    <Button x:Name="start2" Content="START" Click="Button_Start3" Width="200" Height="30" Grid.Row="1" Background="Yellow"/>
+                    <Image Source="UGENT.PNG" Height="150" Width="150" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="1" />
+
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
 
     </Grid>
-    
+
 </Window>

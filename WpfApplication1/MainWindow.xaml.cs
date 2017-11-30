@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Data;
 ///using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Media;
@@ -26,7 +27,21 @@ namespace WpfApplication1
  ///       SoundEntity dataEntities = new SoundEntity();
         public MainWindow()
         {
-            InitializeComponent();           
+            InitializeComponent();
+
+            /*DataSet musicOrders = new DataSet("Music");
+            MusicGrid.DataContext = musicOrders;
+            DataTable ordersTable = musicOrders.Tables.Add("Sound");
+
+            DataColumn pkSoundID =
+                ordersTable.Columns.Add("SoundID", typeof(Int32));
+            ordersTable.Columns.Add("Type", typeof(string));
+            ordersTable.Columns.Add("Afwijking", typeof(string));
+            ordersTable.Columns.Add("Leeftijd", typeof(Int32));
+            ordersTable.Columns.Add("Duur", typeof(Int32));
+            ordersTable.Columns.Add("Locatie", typeof(string));
+
+            ordersTable.PrimaryKey = new DataColumn[] { pkSoundID };*/
         }
 
         private void Button_Start1(object sender, RoutedEventArgs e)
@@ -63,5 +78,22 @@ namespace WpfApplication1
 
         }
 
+        private void Window_Loaded_1(object sender, RoutedEventArgs e)
+        {
+
+            WpfApplication1.Database1DataSet database1DataSet = ((WpfApplication1.Database1DataSet)(this.FindResource("database1DataSet")));
+            // Load data into the table Table. You can modify this code as needed.
+            WpfApplication1.Database1DataSetTableAdapters.TableTableAdapter database1DataSetTableTableAdapter = new WpfApplication1.Database1DataSetTableAdapters.TableTableAdapter();
+            database1DataSetTableTableAdapter.Fill(database1DataSet.Table);
+            System.Windows.Data.CollectionViewSource tableViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("tableViewSource")));
+            tableViewSource.View.MoveCurrentToFirst();
+        }
+
+        private void saveButton_Click(object sender, RoutedEventArgs e)
+        {
+            WpfApplication1.Database1DataSet database1DataSet = ((WpfApplication1.Database1DataSet)(this.FindResource("database1DataSet")));
+            WpfApplication1.Database1DataSetTableAdapters.TableTableAdapter database1DataSetTableTableAdapter= new WpfApplication1.Database1DataSetTableAdapters.TableTableAdapter();
+            database1DataSetTableTableAdapter.Update(database1DataSet.Table);
+        }
     }
 }

@@ -73,6 +73,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Database1DataSet1.cs">
+      <DependentUpon>Database1DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Database1DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database1DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Exam.xaml.cs">
       <DependentUpon>Exam.xaml</DependentUpon>
     </Compile>
@@ -126,6 +134,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Database1DataSet1.xsc">
+      <DependentUpon>Database1DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Database1DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Database1DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database1DataSet1.xss">
+      <DependentUpon>Database1DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

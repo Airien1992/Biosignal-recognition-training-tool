@@ -5,7 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="Biosignal recognition training tool" Height="350" Width="525" >
+        Title="Biosignal recognition training tool" Height="350" Width="525" Loaded="Window_Loaded_1" >
+    <Window.Resources>
+        <local:Database1DataSet x:Key="database1DataSet"/>
+        <CollectionViewSource x:Key="tableViewSource" Source="{Binding Table, Source={StaticResource database1DataSet}}"/>
+    </Window.Resources>
 
     <Grid Background="RoyalBlue">
         <Grid.RowDefinitions>
@@ -15,17 +19,44 @@
 
         <TabControl Background="White">
             <TabItem Header="Training" Background="LightSkyBlue">
-                <Grid>
+                <Grid >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="500*"/>
                         <RowDefinition Height="500*"/>
+                        <RowDefinition Height="500*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Width="500" TextWrapping="Wrap" Grid.Row="0">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Width="500" TextWrapping="Wrap" Grid.Row="1">
                         Welkom in de trainingssessie. In deze module krijg je de mogelijkheid om vertrouwt te raken met de geluiden die ter berschikking zijn.
                     </TextBlock>
-                    <Button x:Name="start" Content="START" Click="Button_Start1" Width="200" Height="30" Grid.Row="1" Background="Yellow"/>
+                    <Button x:Name="start" Content="START" Click="Button_Start1" Width="200" Height="30" Grid.Row="2" Background="Yellow"/>
                     <Image Source="UGENT.PNG" Height="150" Width="150" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="1" />
+                    
+                </Grid>
 
+            </TabItem>
+            <TabItem Header="grid">
+                <Grid DataContext="{StaticResource tableViewSource}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="400"/>
+
+                    </Grid.RowDefinitions>
+                    <Button HorizontalAlignment="Left" Margin="22,20,0,24" Name="backButton" Width="75"  Grid.Row="0">
+                    </Button>
+                    <Button HorizontalAlignment="Left" Margin="116,20,0,24" Name="nextButton" Width="75"  Grid.Row="0"></Button>
+                    <Button HorizontalAlignment="Right" Margin="0,21,46,24" Name="saveButton" Width="110"  Grid.Row="0" Click="saveButton_Click">Save changes</Button>
+
+                    <DataGrid Grid.Row="1" x:Name="tableDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Grid.RowSpan="3" RowDetailsVisibilityMode="VisibleWhenSelected">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="typeColumn" Binding="{Binding Type}" Header="Type" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="afwijkingColumn" Binding="{Binding Afwijking}" Header="Afwijking" Width="SizeToHeader"/>
+                            <DataGridCheckBoxColumn x:Name="leeftijdColumn" Binding="{Binding leeftijd}" Header="leeftijd" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="duurColumn" Binding="{Binding duur}" Header="duur" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="ruis_gehalteColumn" Binding="{Binding ruis gehalte}" Header="ruis gehalte" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="locationColumn" Binding="{Binding location}" Header="location" Width="SizeToHeader"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem Header="Learning" Background="LightSkyBlue">

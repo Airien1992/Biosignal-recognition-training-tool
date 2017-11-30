@@ -9,30 +9,38 @@
 
         <Grid>
             <Grid.RowDefinitions>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="220*"/>
+                <RowDefinition Height="100*"/>
                 <RowDefinition Height="36*"/>
-                <RowDefinition Height="226*"/>
-                <RowDefinition Height="36*"/>
-            </Grid.RowDefinitions>
+                <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">
-                        Luister naar ieder geluidje en duidt de correcte aan.
+                        Kies een geluid aan.
                 </TextBlock>
-            </StackPanel>
+            
+        </StackPanel>
 
             <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
+            <Button x:Name="btn4" Content="Home" Click="ButtonBack" Width="100" Height="30" Background="LightSkyBlue"/>
+           
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
+            
             <Label Name="lblStatus" Content="Not playing..." HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5" />
-
         </StackPanel>
 
         <MediaElement Source="C:\Users\angel\Documents\biomedische\Biosignal-recognition-training-tool\WpfApplication1\Heart sounds wav\001. Normal Heart Sound- normal speed.wav" Name="myMediaElement" Width="50" Height="50" LoadedBehavior="Manual" UnloadedBehavior="Stop" Stretch="Fill" MediaEnded="Element_MediaEnded"/>
-        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center">
             <Button x:Name="btn1" Content="Play" Click="ButtonPlay" Width="100" Height="30" Background="LightSkyBlue"/>
             <Button x:Name="btn2" Content="Pause" Click="ButtonPause" Width="100" Height="30" Background="LightSkyBlue"/>
             <Button x:Name="btn3" Content="Stop" Click="ButtonStop" Width="100" Height="30" Background="LightSkyBlue"/>
             <TextBlock  VerticalAlignment="Center" Margin="5"  >Volume:</TextBlock>
             <Slider Name="volumeSlider" VerticalAlignment="Center" ValueChanged="ChangeMediaVolume" Minimum="0" Maximum="1" Value="0.5" Width="70"/>
-
+            
         </StackPanel>
-        </Grid>
+        <StackPanel Orientation="Horizontal" Grid.Row="4" HorizontalAlignment="Center"></StackPanel>
+    </Grid>
 
 </Window>

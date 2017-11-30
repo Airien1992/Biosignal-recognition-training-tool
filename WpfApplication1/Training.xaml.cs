@@ -92,5 +92,12 @@ namespace WpfApplication1
             myMediaElement.Volume = volumeSlider.Value;
 
         }
+
+        private void ButtonBack(object sender, RoutedEventArgs e)
+        {
+            MainWindow m = new MainWindow();
+            m.Show();
+            this.Close();
+        }
     }
 }

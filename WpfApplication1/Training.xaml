@@ -20,17 +20,19 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
-                <Button Click="Next_Button" Width="100" Height="30" Background="Yellow">Next</Button>
-            </StackPanel>
+            <Label Name="lblStatus" Content="Not playing..." HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5" />
 
-            <MediaElement x:Name="Audio" Grid.RowSpan="1" LoadedBehavior="Manual" Margin="0,201,0,0"/>
-            <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
-            <Button x:Name="btn1" Content="Play" Click="Button_Click1" Width="100" Height="30" Background="LightSkyBlue"/>
-            <Button x:Name="btn2" Content="Pause" Click="Button_Click2" Width="100" Height="30" Background="LightSkyBlue"/>
-            <Button x:Name="btn3" Content="Stop" Click="Button_Click3" Width="100" Height="30" Background="LightSkyBlue"/>
-            <Button x:Name="btn4" Content="Keuze 4" Click="Button_Click4" Width="100" Height="30" Background="LightSkyBlue"/>
-            
-            </StackPanel>
+        </StackPanel>
+
+        <MediaElement Source="C:\Users\angel\Documents\biomedische\Biosignal-recognition-training-tool\WpfApplication1\Heart sounds wav\001. Normal Heart Sound- normal speed.wav" Name="myMediaElement" Width="50" Height="50" LoadedBehavior="Manual" UnloadedBehavior="Stop" Stretch="Fill" MediaEnded="Element_MediaEnded"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
+            <Button x:Name="btn1" Content="Play" Click="ButtonPlay" Width="100" Height="30" Background="LightSkyBlue"/>
+            <Button x:Name="btn2" Content="Pause" Click="ButtonPause" Width="100" Height="30" Background="LightSkyBlue"/>
+            <Button x:Name="btn3" Content="Stop" Click="ButtonStop" Width="100" Height="30" Background="LightSkyBlue"/>
+            <TextBlock  VerticalAlignment="Center" Margin="5"  >Volume:</TextBlock>
+            <Slider Name="volumeSlider" VerticalAlignment="Center" ValueChanged="ChangeMediaVolume" Minimum="0" Maximum="1" Value="0.5" Width="70"/>
+
+        </StackPanel>
         </Grid>
 
 </Window>

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -13,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace WpfApplication1
 {
@@ -21,44 +23,73 @@ namespace WpfApplication1
     /// </summary>
     public partial class Training : Window
     {
-        private SoundPlayer p = new SoundPlayer(@"C:\Users\angel\Documents\biomedische\Biosignal-recognition-training-tool\WpfApplication1\Heart sounds wav\001. Normal Heart Sound- normal speed.wav");
+        //private SoundPlayer p = new SoundPlayer(@"C:\Users\angel\Documents\biomedische\Biosignal-recognition-training-tool\WpfApplication1\Heart sounds wav\001. Normal Heart Sound- normal speed.wav");
         public Training()
         {
             InitializeComponent();
-        }
-        private void Button_Click1(object sender, RoutedEventArgs e)
-        {            
-            p.Load();
-            p.Play();      
+            if (DesignerProperties.GetIsInDesignMode(this))
+            {
+                return;
+            }
 
         }
-        private void Button_Click2(object sender, RoutedEventArgs e)
+
+        void timer_Tick(object sender, EventArgs e)
         {
-            
+            if (myMediaElement.Source != null)
+                lblStatus.Content = String.Format("{0} / {1}", myMediaElement.Position.ToString(@"mm\:ss"), myMediaElement.NaturalDuration.TimeSpan.ToString(@"mm\:ss"));
+            else
+                lblStatus.Content = "No file selected...";
         }
-        private void Button_Click3(object sender, RoutedEventArgs e)
+        private void ButtonPlay(object sender, RoutedEventArgs e)
         {
-            p.Stop();
+            myMediaElement.Play();
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += timer_Tick;
+            timer.Start();
+            InitializePropertyValues();
+
         }
-        private void Button_Click4(object sender, RoutedEventArgs e)
+        private void ButtonPause(object sender, RoutedEventArgs e)
         {
             // Displays an OpenFileDialog so the user can select a Cursor.  
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "Wav|*.wav";
-            openFileDialog1.Title = "Select a wav";
+            //OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            //openFileDialog1.Filter = "Wav|*.wav";
+            //openFileDialog1.Title = "Select a wav";
 
             // Show the Dialog.  
             // If the user clicked OK in the dialog and  
             // a .CUR file was selected, open it.  
-            if (openFileDialog1.ShowDialog() != DialogResult)
-            {
-                SoundPlayer simpleSound = new SoundPlayer(openFileDialog1.FileName);
-                simpleSound.Load();
-                simpleSound.Play();
-            }
+            //if (openFileDialog1.ShowDialog() != DialogResult)
+            //{
+            // SoundPlayer simpleSound = new SoundPlayer(openFileDialog1.FileName);
+            // simpleSound.Load();
+            //simpleSound.Play();
+            //}
+            // myMediaElement.Pause();
+            myMediaElement.Pause();
         }
-        private void Next_Button(object sender, RoutedEventArgs e)
+        private void ButtonStop(object sender, RoutedEventArgs e)
         {
+            myMediaElement.Stop();
+        }
+
+
+        private void ChangeMediaVolume(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            myMediaElement.Volume = (double)volumeSlider.Value;
+        }
+
+
+        private void Element_MediaEnded(object sender, EventArgs e)
+        {
+            myMediaElement.Stop();
+        }
+
+        void InitializePropertyValues()
+        {
+            myMediaElement.Volume = volumeSlider.Value;
 
         }
     }

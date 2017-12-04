@@ -22,9 +22,10 @@
             
         </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
+            <StackPanel Orientation="Vertical" Grid.Row="1" VerticalAlignment="Center">
             <Button x:Name="btn4" Content="Home" Click="ButtonBack" Width="100" Height="30" Background="LightSkyBlue"/>
-           
+            <ComboBox Name="KeuzeSound" SelectionChanged="KeuzeSound_SelectionChanged">
+            </ComboBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
             
@@ -33,7 +34,7 @@
 
         <MediaElement Source="C:\Users\angel\Documents\biomedische\Biosignal-recognition-training-tool\WpfApplication1\Heart sounds wav\001. Normal Heart Sound- normal speed.wav" Name="myMediaElement" Width="50" Height="50" LoadedBehavior="Manual" UnloadedBehavior="Stop" Stretch="Fill" MediaEnded="Element_MediaEnded"/>
         <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center">
-            <Button x:Name="btn1" Content="Play" Click="ButtonPlay" Width="100" Height="30" Background="LightSkyBlue"/>
+            <Button x:Name="btn1" Content="Play" Click="ButtonPlay" Width="100" Height="30" Background="LightSkyBlue" Margin="0,0,0,-2" VerticalAlignment="Top"/>
             <Button x:Name="btn2" Content="Pause" Click="ButtonPause" Width="100" Height="30" Background="LightSkyBlue"/>
             <Button x:Name="btn3" Content="Stop" Click="ButtonStop" Width="100" Height="30" Background="LightSkyBlue"/>
             <TextBlock  VerticalAlignment="Center" Margin="5"  >Volume:</TextBlock>

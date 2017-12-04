@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -23,13 +24,26 @@ namespace WpfApplication1
     /// </summary>
     public partial class Training : Window
     {
-        //private SoundPlayer p = new SoundPlayer(@"C:\Users\angel\Documents\biomedische\Biosignal-recognition-training-tool\WpfApplication1\Heart sounds wav\001. Normal Heart Sound- normal speed.wav");
+        private SoundPlayer p = new SoundPlayer(Application.ResourceAssembly.Location.Trim(new char[]{ 'e', 'x', 'e', '.', '1', 'n', 'o', 'i', 't', 'a', 'c', 'i', 'l', 'p', 'p', 'A', 'f', 'p', 'W' }));
         public Training()
         {
             InitializeComponent();
+            
             if (DesignerProperties.GetIsInDesignMode(this))
             {
                 return;
+            }
+            DirectoryInfo d = new DirectoryInfo(Convert.ToString(Application.ResourceAssembly.Location.Trim(new char[] { 'e', 'x', 'e', '.', '1', 'n', 'o', 'i', 't', 'a', 'c', 'i', 'l', 'p', 'p', 'A', 'f', 'p', 'W' })+"\\Heart"));//Assuming Test is your Folder
+            FileInfo[] Files = d.GetFiles("*.wav"); //Getting Text files
+            List<string> keuzes = new List<string>();
+            foreach (FileInfo file in Files)
+            {
+                
+                keuzes.Add(Convert.ToString(file.Name));
+            }
+            foreach(string keuze in keuzes)
+            {
+                KeuzeSound.Items.Add(keuze);
             }
 
         }
@@ -98,6 +112,13 @@ namespace WpfApplication1
             MainWindow m = new MainWindow();
             m.Show();
             this.Close();
+        }
+
+        private void KeuzeSound_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MessageBox.Show("Hallo");
+           Uri a=new Uri(Convert.ToString(Application.ResourceAssembly.Location.Trim(new char[] { 'e', 'x', 'e', '.', '1', 'n', 'o', 'i', 't', 'a', 'c', 'i', 'l', 'p', 'p', 'A', 'f', 'p', 'W' }) + @"Heart") + @"\" + KeuzeSound.SelectedItem.ToString());
+            myMediaElement.Source = a;
         }
     }
 }

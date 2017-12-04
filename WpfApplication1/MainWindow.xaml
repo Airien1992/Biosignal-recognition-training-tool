@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="Biosignal recognition training tool" Height="350" Width="525" Loaded="Window_Loaded_1" >
     <Window.Resources>
-        <local:Database1DataSet x:Key="database1DataSet"/>
-        <CollectionViewSource x:Key="tableViewSource" Source="{Binding Table, Source={StaticResource database1DataSet}}"/>
+        <local:DataSet1 x:Key="dataSet"/>
+        <CollectionViewSource x:Key="tableViewSource" Source="{Binding Table, Source={StaticResource dataSet}}"/>
     </Window.Resources>
 
     <Grid Background="RoyalBlue">
@@ -34,27 +34,29 @@
                 </Grid>
 
             </TabItem>
-            <TabItem Header="grid">
+            <TabItem Header="grid" Height="25" VerticalAlignment="Top">
                 <Grid DataContext="{StaticResource tableViewSource}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="100"/>
                         <RowDefinition Height="400"/>
 
                     </Grid.RowDefinitions>
-                    <Button HorizontalAlignment="Left" Margin="22,20,0,24" Name="backButton" Width="75"  Grid.Row="0">
-                    </Button>
-                    <Button HorizontalAlignment="Left" Margin="116,20,0,24" Name="nextButton" Width="75"  Grid.Row="0"></Button>
-                    <Button HorizontalAlignment="Right" Margin="0,21,46,24" Name="saveButton" Width="110"  Grid.Row="0" Click="saveButton_Click">Save changes</Button>
-
-                    <DataGrid Grid.Row="1" x:Name="tableDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Grid.RowSpan="3" RowDetailsVisibilityMode="VisibleWhenSelected">
+                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <Button HorizontalAlignment="Left"  Name="backButton" HorizontalContentAlignment="Left" VerticalAlignment="Center" >Back</Button>
+                        <Button HorizontalAlignment="Left"  Name="nextButton" HorizontalContentAlignment="Left" VerticalAlignment="Center"  >Next</Button>
+                        <Button HorizontalAlignment="Right"  Name="saveButton" HorizontalContentAlignment="Left" VerticalAlignment="Center"  Click="saveButton_Click">Save changes</Button>
+                        <TextBox Name="txtbxId" HorizontalContentAlignment="Left" VerticalAlignment="Center"></TextBox>
+                        <TextBox Name="txtbxType" HorizontalContentAlignment="Left" VerticalAlignment="Center"></TextBox>
+                        <TextBox Name="txtbxAfwijking" HorizontalContentAlignment="Left" VerticalAlignment="Center"></TextBox>
+                        <TextBox Name="txtbxLocatie" HorizontalContentAlignment="Left" VerticalAlignment="Center"></TextBox>
+                    </StackPanel>
+                    
+                    <DataGrid Grid.Row="1" x:Name="tableDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Grid.RowSpan="3" RowDetailsVisibilityMode="VisibleWhenSelected" >
                         <DataGrid.Columns>
                             <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" Width="SizeToHeader"/>
                             <DataGridTextColumn x:Name="typeColumn" Binding="{Binding Type}" Header="Type" Width="SizeToHeader"/>
                             <DataGridTextColumn x:Name="afwijkingColumn" Binding="{Binding Afwijking}" Header="Afwijking" Width="SizeToHeader"/>
-                            <DataGridCheckBoxColumn x:Name="leeftijdColumn" Binding="{Binding leeftijd}" Header="leeftijd" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="duurColumn" Binding="{Binding duur}" Header="duur" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="ruis_gehalteColumn" Binding="{Binding ruis gehalte}" Header="ruis gehalte" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="locationColumn" Binding="{Binding location}" Header="location" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="locationColumn" Binding="{Binding Locatie}" Header="Location" Width="SizeToHeader" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

@@ -116,7 +116,6 @@ namespace WpfApplication1
 
         private void KeuzeSound_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MessageBox.Show("Hallo");
            Uri a=new Uri(Convert.ToString(Application.ResourceAssembly.Location.Trim(new char[] { 'e', 'x', 'e', '.', '1', 'n', 'o', 'i', 't', 'a', 'c', 'i', 'l', 'p', 'p', 'A', 'f', 'p', 'W' }) + @"Heart") + @"\" + KeuzeSound.SelectedItem.ToString());
             myMediaElement.Source = a;
         }

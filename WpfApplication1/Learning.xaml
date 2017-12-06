@@ -17,6 +17,8 @@
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">
                         Luister naar ieder geluidje en duidt de correcte aan.
             </TextBlock>
+            <MediaElement Source="C:\Users\angel\Documents\biomedische\Biosignal-recognition-training-tool\WpfApplication1\Heart sounds wav\001. Normal Heart Sound- normal speed.wav" Name="myMediaElement" Width="50" Height="50" LoadedBehavior="Manual" UnloadedBehavior="Stop" Stretch="Fill" MediaEnded="Element_MediaEnded"/>
+
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">

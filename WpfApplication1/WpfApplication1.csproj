@@ -118,6 +118,7 @@
     <Compile Include="Training.xaml.cs">
       <DependentUpon>Training.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WaveIO.cs" />
     <Page Include="Exam.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

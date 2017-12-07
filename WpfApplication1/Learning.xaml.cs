@@ -31,28 +31,6 @@ namespace WpfApplication1
         {
             InitializeComponent();
             MixingSongs();
-           /*
-            
-            foreach (DataSet1.SoundRow row in dataSet.Sound)
-            {
-                foreach (int a in mix)
-                {
-                    if (row.Id == a)
-                    {
-                        files.Add(pth + row.Locatie);
-                        MessageBox.Show(pth + row.Locatie);
-                    }
-                    if (row.Id == juist)
-                    { juistAntwoord = row.Afwijking;
-                        MessageBox.Show(juistAntwoord);
-                    }
-                }
-                 
-
-            }
-            
-            
-*/
         }
             
         private void MixingSongs()

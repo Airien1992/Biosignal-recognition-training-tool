@@ -7,6 +7,44 @@
         mc:Ignorable="d"
         Title="Exam" Height="300" Width="300">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.RowSpan="2" VerticalAlignment="Center">
+            <MediaElement Source="C:\Users\angel\Documents\biomedische\Biosignal-recognition-training-tool\WpfApplication1\Heart sounds wav\001. Normal Heart Sound- normal speed.wav" Name="myMediaElement" Width="50" Height="50" LoadedBehavior="Manual" UnloadedBehavior="Stop" Stretch="Fill" MediaEnded="Element_MediaEnded"/>
+            <Button Name="btnStart" Content="Play" Click="btnStart_Click"/>
+            <Button Name="btnPause" Content="Pauze" Click="btnPause_Click" />
+            <Button Name="btnStop" Content="Stop" Click="btnStop_Click"/>
+        </StackPanel>
+        <TextBox Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" >Speel de mix af en beshrijf wat u hoort in de textvelden onder de juiste deelvragen.</TextBox>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <StackPanel Orientation="Vertical">
+                <Label Content="Type"/>
+                <TextBox Name="tbxType"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Label Content="Eerste afwijking:"/>
+                <TextBox Name="tbxAfwijking1"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Label Content="Tweede afwijking:"/>
+                <TextBox Name="tbxAfwijking2"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Label Content="Derde afwijking:"/>
+                <TextBox Name="tbxAfwijking3"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Label Content="Vierde afwijking:"/>
+                <TextBox Name="tbxAfwijking4"/>
+            </StackPanel>
+        </StackPanel>
+        <Button Name="btnNext" Grid.Column="3" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Volgende" Click="btnNext_Click"/>
     </Grid>
 </Window>

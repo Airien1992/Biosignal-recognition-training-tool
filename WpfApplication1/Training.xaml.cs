@@ -73,21 +73,6 @@ namespace WpfApplication1
         }
         private void ButtonPause(object sender, RoutedEventArgs e)
         {
-            // Displays an OpenFileDialog so the user can select a Cursor.  
-            //OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            //openFileDialog1.Filter = "Wav|*.wav";
-            //openFileDialog1.Title = "Select a wav";
-
-            // Show the Dialog.  
-            // If the user clicked OK in the dialog and  
-            // a .CUR file was selected, open it.  
-            //if (openFileDialog1.ShowDialog() != DialogResult)
-            //{
-            // SoundPlayer simpleSound = new SoundPlayer(openFileDialog1.FileName);
-            // simpleSound.Load();
-            //simpleSound.Play();
-            //}
-            // myMediaElement.Pause();
             myMediaElement.Pause();
         }
         private void ButtonStop(object sender, RoutedEventArgs e)

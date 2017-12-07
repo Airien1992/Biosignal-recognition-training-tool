@@ -22,7 +22,7 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
-            <Button Click="Next_Button" Width="100" Height="30" Background="Yellow">Submit</Button>
+            <Button  Width="100" Height="30" Background="Yellow" Click="Button_Click">Submit</Button>
         </StackPanel>
 
  
@@ -34,11 +34,8 @@
             <Button x:Name="btn2" Content="Keuze 2" Click="Button_Click2" Width="100" Height="30" Background="LightSkyBlue"/>
             <Button x:Name="btn3" Content="Keuze 3" Click="Button_Click3" Width="100" Height="30" Background="LightSkyBlue"/>
             <Button x:Name="btn4" Content="Keuze 4" Click="Button_Click4" Width="100" Height="30" Background="LightSkyBlue"/>
-            <ComboBox Width="100" Height ="30" Background="LightSkyBlue" SelectionChanged="ComboBox_SelectionChanged">
-                <ComboBoxItem IsSelected="True" Content="Keuze 1"/>
-                <ComboBoxItem Content="Keuze 2"/>
-                <ComboBoxItem Content="Keuze 3"/>
-                <ComboBoxItem Content="Keuze 4"/>
+            <ComboBox Name="cbAntwoorden" Width="100" Height ="30" Background="LightSkyBlue" SelectionChanged="ComboBox_SelectionChanged">
+                
             </ComboBox>
         </StackPanel>
     </Grid>

@@ -45,6 +45,12 @@ namespace WpfApplication1
             {
                 KeuzeSound.Items.Add(keuze);
             }
+            TextWriter tw = new StreamWriter("SavedList.txt");
+
+            foreach (String s in keuzes)
+                tw.WriteLine(s);
+
+            tw.Close();
 
         }
 

@@ -22,41 +22,105 @@ namespace WpfApplication1
     public partial class Learning : Window
     {
         private string pth = Convert.ToString(Application.ResourceAssembly.Location.Trim(new char[] { 'e', 'x', 'e', '.', '1', 'n', 'o', 'i', 't', 'a', 'c', 'i', 'l', 'p', 'p', 'A', 'f', 'p', 'W' }));
+        private int juist = 0;
+        private string juistAntwoord;
+        private WpfApplication1.DataSet1 dataSet = new DataSet1();
+        private WpfApplication1.DataSet1TableAdapters.SoundTableAdapter dataSet1TableTableAdapter = new WpfApplication1.DataSet1TableAdapters.SoundTableAdapter();
 
         public Learning()
         {
             InitializeComponent();
-            List<string> files = new List<string>();
-            //string[] files = new string[4];
-            WpfApplication1.DataSet1 dataSet = new DataSet1();
-            WpfApplication1.DataSet1TableAdapters.SoundTableAdapter dataSet1TableTableAdapter = new WpfApplication1.DataSet1TableAdapters.SoundTableAdapter();
-            dataSet1TableTableAdapter.Fill(dataSet.Sound);
-            Random rnd = new Random();
-            int month = rnd.Next(17);
-            List<int> mix = new List<int>();
-            for (int i = 0; i < 16; i++) 
-            {
-                int rand= rnd.Next(17);
-                while (month == rand)
-                    rand = rnd.Next(17);
-                month = rand;
-                mix.Add(month);
-            }
+            MixingSongs();
+           /*
             
             foreach (DataSet1.SoundRow row in dataSet.Sound)
             {
                 foreach (int a in mix)
                 {
-                    if(row.Id==a)
-                    files.Add(pth + row.Locatie);
+                    if (row.Id == a)
+                    {
+                        files.Add(pth + row.Locatie);
+                        MessageBox.Show(pth + row.Locatie);
+                    }
+                    if (row.Id == juist)
+                    { juistAntwoord = row.Afwijking;
+                        MessageBox.Show(juistAntwoord);
+                    }
                 }
-                // MessageBox.Show(row.Afwijking);
+                 
 
+            }
+            
+            
+*/
+        }
+            
+        private void MixingSongs()
+        {
+            List<string> files = new List<string>();
+            dataSet1TableTableAdapter.Fill(dataSet.Sound);
+            Random rnd = new Random();
+            int month = rnd.Next(17);
+            List<int> mix = new List<int>();
+
+            List<string> antwrd = new List<string>();
+            int[] antwID = { 0, 0, 0, 0 };
+            for (int i = 0; i < 16; i++)
+            {
+
+                int rand = rnd.Next(104);
+                while (month == rand)
+                    rand = rnd.Next(104);
+                month = rand;
+                mix.Add(month);
+            }
+            int optie = rnd.Next(4);
+            int ant = rnd.Next(4);
+            juist = 4 * optie + ant;
+            foreach (DataSet1.SoundRow row in dataSet.Sound)
+            {
+                foreach (int a in mix)
+                {
+                    if (row.Id == a)
+                    {
+                        files.Add(pth + @row.Type + "\\" + row.Locatie.ToString().TrimStart(new char[] { '\\', 'H', 'e', 'a', 'r', 't', '\\', '\\', '\r', '\n' }));
+                        
+                    }
+                }
+                if (row.Id == juist)
+                {
+                    juistAntwoord = row.Afwijking;
+                }
+
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                int rand = rnd.Next(104);
+                while (month == rand)
+                    rand = rnd.Next(104);
+                month = rand;
+                if (month <= juist || juist == 0)
+                    antwID[i] = month;
+                else
+                {
+                    antwID[i] = juist;
+                    juist = 0;
+                    i += 1;
+                    antwID[i] = month;
+                }
+            }
+            cbAntwoorden.Items.Clear();
+            foreach (DataSet1.SoundRow row in dataSet.Sound)
+            {
+                if (antwID.Contains(row.Id))
+                {
+                    cbAntwoorden.Items.Add(row.Afwijking);
+                }
             }
 
             WaveIO wa = new WaveIO();
-            string weg=pth + "\\ouput\\";
-            wa.Merge(files.Take(4).ToList(), weg+"output1.wav");
+            string weg = pth + "\\ouput\\";
+            wa.Merge(files.Take(4).ToList(), weg + "output1.wav");
             wa.Merge(files.Skip(4).Take(4).ToList(), weg + "output2.wav");
             wa.Merge(files.Skip(8).Take(4).ToList(), weg + "output3.wav");
             wa.Merge(files.Skip(12).Take(4).ToList(), weg + "output4.wav");
@@ -99,20 +163,34 @@ namespace WpfApplication1
         {
             //submit your answer and after that check whether it's the correct one or not
 
-            var newText = new TextBox();
+            
+                /*var newText = new TextBox();
             string message = string.Format("CORRECT! / FOUT!", newText.Text);
-            MessageBox.Show(message);
-            GenerateNextQuestion();          
+            MessageBox.Show(message);*/
+                     
         }
 
         private void GenerateNextQuestion()
         {
-
+            
+            MixingSongs();
         }
 
         private void CheckAnswer()
         {
+            if (juistAntwoord == cbAntwoorden.SelectedValue.ToString())
+            {
+                MessageBox.Show("Correct geantwoord");
+                GenerateNextQuestion();
+            }
+            else
+                MessageBox.Show("Fout het juist antwoord is: " + juistAntwoord);
+            
+        }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CheckAnswer();
         }
     }
 }

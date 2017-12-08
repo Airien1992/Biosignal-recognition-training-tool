@@ -8,9 +8,11 @@
         Title="Learning" Height="350" Width="525">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="36*"/>
-            <RowDefinition Height="226*"/>
-            <RowDefinition Height="36*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="10*"/>
 
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
@@ -21,20 +23,31 @@
 
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
-            <Button  Width="100" Height="30" Background="Yellow" Click="Button_Click">Submit</Button>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">            
+            <Button  Width="100" Height="30" Background="Yellow" Click="Button_Home">Home</Button>
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
+            
+            <TextBlock  VerticalAlignment="Center" HorizontalAlignment="Center"  Width="50">Volume:</TextBlock>
+            <Slider Name="volumeSlider" VerticalAlignment="Center" ValueChanged="ChangeMediaVolume" Minimum="0" Maximum="1" Value="0.5" Width="150"/>
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center">
+            <Button  Width="100" Height="30" Background="LightSkyBlue" Click="Button_Click">Submit</Button>
+            <Label Name="lblStatus" Content="Not playing..." HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5" Width="100"/>
         </StackPanel>
 
- 
+
 
         <MediaElement x:Name="Audio" Grid.RowSpan="1" LoadedBehavior="Manual" Margin="0,201,0,0"/>
         
-        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" Grid.Row="4" HorizontalAlignment="Center">
             <Button x:Name="btn1" Content="Keuze 1" Click="Button_Click1" Width="100" Height="30" Background="LightSkyBlue"/>
             <Button x:Name="btn2" Content="Keuze 2" Click="Button_Click2" Width="100" Height="30" Background="LightSkyBlue"/>
             <Button x:Name="btn3" Content="Keuze 3" Click="Button_Click3" Width="100" Height="30" Background="LightSkyBlue"/>
             <Button x:Name="btn4" Content="Keuze 4" Click="Button_Click4" Width="100" Height="30" Background="LightSkyBlue"/>
-            <ComboBox Name="cbAntwoorden" Width="100" Height ="30" Background="LightSkyBlue" SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBox Name="cbAntwoorden" Width="100" Height ="30" Background="LightSkyBlue" SelectionChanged="ComboBox_SelectionChanged" SelectedIndex="0" >
                 
             </ComboBox>
         </StackPanel>

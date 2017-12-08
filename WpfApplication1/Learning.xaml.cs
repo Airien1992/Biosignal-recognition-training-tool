@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace WpfApplication1
 {
@@ -104,32 +105,65 @@ namespace WpfApplication1
             wa.Merge(files.Skip(12).Take(4).ToList(), weg + "output4.wav");
         }
 
-        private void Button_Click1(object sender, RoutedEventArgs e)
+        void InitializePropertyValues()
         {
-            myMediaElement.Source=new Uri(pth + "\\ouput\\output1.wav");
-            myMediaElement.Play();
-    }
+            myMediaElement.Volume = volumeSlider.Value;
+
+        }
+        void timer_Tick(object sender, EventArgs e)
+        {
+            if (myMediaElement.Source != null)
+                lblStatus.Content = String.Format("{0} / {1}", myMediaElement.Position.ToString(@"mm\:ss"), myMediaElement.NaturalDuration.TimeSpan.ToString(@"mm\:ss"));
+            else
+                lblStatus.Content = "Not playing...";
+        }
         private void Element_MediaEnded(object sender, EventArgs e)
         {
             myMediaElement.Stop();
         }
+        private void Button_Click1(object sender, RoutedEventArgs e)
+        {
+            myMediaElement.Source=new Uri(pth + "\\ouput\\output1.wav");
+            myMediaElement.Play();
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += timer_Tick;
+            timer.Start();
+            InitializePropertyValues();
+        }
+        
 
         private void Button_Click2(object sender, RoutedEventArgs e)
         {
             myMediaElement.Source = new Uri(pth + "\\ouput\\output2.wav");
             myMediaElement.Play();
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += timer_Tick;
+            timer.Start();
+            InitializePropertyValues();
         }
 
         private void Button_Click3(object sender, RoutedEventArgs e)
         {
             myMediaElement.Source = new Uri(pth + "\\ouput\\output3.wav");
             myMediaElement.Play();
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += timer_Tick;
+            timer.Start();
+            InitializePropertyValues();
         }
 
         private void Button_Click4(object sender, RoutedEventArgs e)
         {
             myMediaElement.Source = new Uri(pth + "\\ouput\\output4.wav");
             myMediaElement.Play();
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += timer_Tick;
+            timer.Start();
+            InitializePropertyValues();
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -137,16 +171,6 @@ namespace WpfApplication1
             //pick the sound you think is correct
         }
 
-        private void Next_Button(object sender, RoutedEventArgs e)
-        {
-            //submit your answer and after that check whether it's the correct one or not
-
-            
-                /*var newText = new TextBox();
-            string message = string.Format("CORRECT! / FOUT!", newText.Text);
-            MessageBox.Show(message);*/
-                     
-        }
 
         private void GenerateNextQuestion()
         {
@@ -158,17 +182,34 @@ namespace WpfApplication1
         {
             if (juistAntwoord == cbAntwoorden.SelectedValue.ToString())
             {
-                MessageBox.Show("Correct geantwoord");
+                MessageBox.Show("Correct geantwoord!");
                 GenerateNextQuestion();
+                cbAntwoorden.SelectedIndex = 0;
             }
             else
-                MessageBox.Show("Fout het juist antwoord is: " + juistAntwoord);
+                MessageBox.Show("Helaas, fout antwoord. Het juist antwoord is: " + juistAntwoord);
             
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            myMediaElement.Stop();
+            myMediaElement.Source = null;
             CheckAnswer();
+            
         }
+
+        private void Button_Home(object sender, RoutedEventArgs e)
+        {
+            MainWindow m = new MainWindow();
+            m.Show();
+            this.Close();
+        }
+
+        private void ChangeMediaVolume(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            myMediaElement.Volume = (double)volumeSlider.Value;
+        }
+        
     }
 }

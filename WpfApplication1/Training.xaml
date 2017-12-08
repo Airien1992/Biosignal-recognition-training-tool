@@ -9,11 +9,12 @@
 
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="30*"/>
-                <RowDefinition Height="220*"/>
-                <RowDefinition Height="100*"/>
-                <RowDefinition Height="36*"/>
-                <RowDefinition Height="20*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="11*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="11*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">
@@ -23,18 +24,21 @@
         </StackPanel>
 
             <StackPanel Orientation="Vertical" Grid.Row="1" VerticalAlignment="Center">
-            <Button x:Name="btn4" Content="Home" Click="ButtonBack" Width="100" Height="30" Background="LightSkyBlue"/>
-            <ComboBox Name="KeuzeSound" SelectionChanged="KeuzeSound_SelectionChanged">
-            </ComboBox>
+            <Button x:Name="btn4" Content="Home" Click="ButtonBack" Width="100" Height="30" Background="Yellow"/>
+           
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
+            <ComboBox Name="KeuzeSound" SelectionChanged="KeuzeSound_SelectionChanged" Width="200" Height="30" SelectedIndex="0">
+            </ComboBox>
             
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center">
             <Label Name="lblStatus" Content="Not playing..." HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5" />
         </StackPanel>
 
         <MediaElement Source="C:\Users\angel\Documents\biomedische\Biosignal-recognition-training-tool\WpfApplication1\Heart sounds wav\001. Normal Heart Sound- normal speed.wav" Name="myMediaElement" Width="50" Height="50" LoadedBehavior="Manual" UnloadedBehavior="Stop" Stretch="Fill" MediaEnded="Element_MediaEnded"/>
-        <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center">
-            <Button x:Name="btn1" Content="Play" Click="ButtonPlay" Width="100" Height="30" Background="LightSkyBlue" Margin="0,0,0,-2" VerticalAlignment="Top"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="4" HorizontalAlignment="Center">
+            <Button x:Name="btn1" Content="Play" Click="ButtonPlay" Width="100" Height="30" Background="LightSkyBlue" />
             <Button x:Name="btn2" Content="Pause" Click="ButtonPause" Width="100" Height="30" Background="LightSkyBlue"/>
             <Button x:Name="btn3" Content="Stop" Click="ButtonStop" Width="100" Height="30" Background="LightSkyBlue"/>
             <TextBlock  VerticalAlignment="Center" Margin="5"  >Volume:</TextBlock>

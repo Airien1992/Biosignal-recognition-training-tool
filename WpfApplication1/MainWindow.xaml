@@ -23,44 +23,17 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="500*"/>
                         <RowDefinition Height="500*"/>
-                        <RowDefinition Height="500*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Width="500" TextWrapping="Wrap" Grid.Row="1">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Width="500" TextWrapping="Wrap" Grid.Row="0">
                         Welkom in de trainingssessie. In deze module krijg je de mogelijkheid om vertrouwt te raken met de geluiden die ter berschikking zijn.
                     </TextBlock>
                     <Button x:Name="start" Content="START" Click="Button_Start1" Width="200" Height="30" Grid.Row="2" Background="Yellow"/>
-                    <Image Source="UGENT.PNG" Height="150" Width="150" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="1" />
-                    
+
+
                 </Grid>
 
             </TabItem>
-            <TabItem Header="grid" Height="25" VerticalAlignment="Top">
-                <Grid DataContext="{StaticResource tableViewSource}">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="100"/>
-                        <RowDefinition Height="400"/>
 
-                    </Grid.RowDefinitions>
-                    <StackPanel Grid.Row="0" Orientation="Horizontal">
-                        <Button HorizontalAlignment="Left"  Name="backButton" HorizontalContentAlignment="Left" VerticalAlignment="Center" >Back</Button>
-                        <Button HorizontalAlignment="Left"  Name="nextButton" HorizontalContentAlignment="Left" VerticalAlignment="Center"  >Next</Button>
-                        <Button HorizontalAlignment="Right"  Name="saveButton" HorizontalContentAlignment="Left" VerticalAlignment="Center"  Click="saveButton_Click">Save changes</Button>
-                        <TextBox Name="txtbxId" HorizontalContentAlignment="Left" VerticalAlignment="Center"></TextBox>
-                        <TextBox Name="txtbxType" HorizontalContentAlignment="Left" VerticalAlignment="Center"></TextBox>
-                        <TextBox Name="txtbxAfwijking" HorizontalContentAlignment="Left" VerticalAlignment="Center"></TextBox>
-                        <TextBox Name="txtbxLocatie" HorizontalContentAlignment="Left" VerticalAlignment="Center"></TextBox>
-                    </StackPanel>
-                    
-                    <DataGrid Grid.Row="1" x:Name="tableDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Grid.RowSpan="3" RowDetailsVisibilityMode="VisibleWhenSelected" >
-                        <DataGrid.Columns>
-                            <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="typeColumn" Binding="{Binding Type}" Header="Type" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="afwijkingColumn" Binding="{Binding Afwijking}" Header="Afwijking" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="locationColumn" Binding="{Binding Locatie}" Header="Location" Width="SizeToHeader" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </Grid>
-            </TabItem>
             <TabItem Header="Learning" Background="LightSkyBlue">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -71,7 +44,7 @@
                         Welkom in de learningssessie. In deze module krijg je de mogelijkheid om een test af te leggen. Het is een multiple choice test en iedere keer als je een antwoord geeft wordt de juiste gehighlight.
                     </TextBlock>
                     <Button x:Name="start1" Content="START" Click="Button_Start2" Width="200" Height="30" Grid.Row="1" Background="Yellow"/>
-                    <Image Source="UGENT.PNG" Height="150" Width="150" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="1" />
+
                 </Grid>
             </TabItem>
 
@@ -86,8 +59,33 @@
                         Welkom in de examssessie. In deze module kan je een examen afleggen. De eindscore zal ter beschikking zijn indien het examen is afgerond.
                     </TextBlock>
                     <Button x:Name="start2" Content="START" Click="Button_Start3" Width="200" Height="30" Grid.Row="1" Background="Yellow"/>
-                    <Image Source="UGENT.PNG" Height="150" Width="150" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="1" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Toevoegen" Background="LightSkyBlue">
+                <Grid DataContext="{StaticResource tableViewSource}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="400"/>
 
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <Button HorizontalAlignment="Left"  Name="backButton"  Width="100" Height="30">Back</Button>
+                        <Button HorizontalAlignment="Left"  Name="nextButton"  Width="100" Height="30" >Next</Button>
+                        <Button HorizontalAlignment="Right"  Name="saveButton"   Click="saveButton_Click" Width="100" Height="30">Save changes</Button>
+                        <TextBox Name="txtbxId"  Width="51" Height="30"></TextBox>
+                        <TextBox Name="txtbxType"  Width="51" Height="30"></TextBox>
+                        <TextBox Name="txtbxAfwijking"  Width="51" Height="30"></TextBox>
+                        <TextBox Name="txtbxLocatie" Width="51" Height="30"></TextBox>
+                    </StackPanel>
+
+                    <DataGrid Grid.Row="1" x:Name="tableDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="0,0,0,209" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="typeColumn" Binding="{Binding Type}" Header="Type" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="afwijkingColumn" Binding="{Binding Afwijking}" Header="Afwijking" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="locationColumn" Binding="{Binding Locatie}" Header="Location" Width="SizeToHeader" />
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
             </TabItem>
 

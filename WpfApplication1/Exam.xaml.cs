@@ -115,6 +115,9 @@ namespace WpfApplication1
                 }
                 
                 MessageBox.Show("Uw score is: \n" + score.ToString() + " op " + vraag);
+                MainWindow m = new MainWindow();
+                m.Show();
+                this.Close();
             }
             
 
@@ -123,6 +126,13 @@ namespace WpfApplication1
         private void btnPause_Click(object sender, RoutedEventArgs e)
         {
             myMediaElement.Pause();
+        }
+
+        private void btnHome_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow m = new MainWindow();
+            m.Show();
+            this.Close();
         }
     }
 }

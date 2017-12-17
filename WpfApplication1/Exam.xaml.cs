@@ -95,6 +95,11 @@ namespace WpfApplication1
                 stuAntw.Add(new string[] { tbxAfwijking1.Text, tbxAfwijking2.Text, tbxAfwijking3.Text, tbxAfwijking4.Text });
                 vraag++;
                 MixingSongs();
+                tbxAfwijking1.Clear();
+                tbxAfwijking2.Clear();
+                tbxAfwijking3.Clear();
+                tbxAfwijking4.Clear();
+                tbxType.Clear();
             }
             else
             {
@@ -105,11 +110,11 @@ namespace WpfApplication1
                         score++;
                     }
                     else
-                        MessageBox.Show(ant[0]+","+ ant[1] + "," + ant[2] + "," + ant[3] + "Waren de antwoorden op vraag: "+ va);
+                        MessageBox.Show("De antwoorden op vraag " + va + " zijn: \n " + ant[0]+"\n"+ ant[1] + "\n" + ant[2] + "\n" + ant[3]);
                     va++;
                 }
                 
-                MessageBox.Show(score.ToString());
+                MessageBox.Show("Uw score is: \n" + score.ToString() + " op " + vraag);
             }
             
 

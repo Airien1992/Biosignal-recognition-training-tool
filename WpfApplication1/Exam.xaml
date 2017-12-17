@@ -5,28 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="Exam" Height="300" Width="300">
+        Title="Exam" Height="350" Width="525">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions >
             <RowDefinition Height="*"/>
             <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
+        <MediaElement Source="C:\Users\angel\Documents\biomedische\Biosignal-recognition-training-tool\WpfApplication1\Heart sounds wav\001. Normal Heart Sound- normal speed.wav" Name="myMediaElement" Width="50" Height="50" LoadedBehavior="Manual" UnloadedBehavior="Stop" Stretch="Fill" MediaEnded="Element_MediaEnded"/>
         <StackPanel Orientation="Vertical" Grid.Column="0" Grid.RowSpan="2" VerticalAlignment="Center">
-            <MediaElement Source="C:\Users\angel\Documents\biomedische\Biosignal-recognition-training-tool\WpfApplication1\Heart sounds wav\001. Normal Heart Sound- normal speed.wav" Name="myMediaElement" Width="50" Height="50" LoadedBehavior="Manual" UnloadedBehavior="Stop" Stretch="Fill" MediaEnded="Element_MediaEnded"/>
-            <Button Name="btnStart" Content="Play" Click="btnStart_Click"/>
-            <Button Name="btnPause" Content="Pauze" Click="btnPause_Click" />
-            <Button Name="btnStop" Content="Stop" Click="btnStop_Click"/>
+
+            <Button Name="btnStart" Content="Play" Click="btnStart_Click" Width="100" Height="30" Background="LightSkyBlue"/>
+            <Button Name="btnPause" Content="Pauze" Click="btnPause_Click" Width="100" Height="30" Background="LightSkyBlue" />
+            <Button Name="btnStop" Content="Stop" Click="btnStop_Click" Width="100" Height="30" Background="LightSkyBlue"/>
         </StackPanel>
-        <TextBox Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" >Speel de mix af en beshrijf wat u hoort in de textvelden onder de juiste deelvragen.</TextBox>
+        <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" >Speel de mix af en beshrijf wat u hoort in de textvelden onder de juiste deelvragen.</TextBlock>
         <StackPanel Grid.Column="1" Grid.Row="1">
             <StackPanel Orientation="Vertical">
-                <Label Content="Type"/>
-                <TextBox Name="tbxType"/>
+                <Label Content="Type:"/>
+                <TextBox Name="tbxType" />
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <Label Content="Eerste afwijking:"/>
@@ -45,6 +46,6 @@
                 <TextBox Name="tbxAfwijking4"/>
             </StackPanel>
         </StackPanel>
-        <Button Name="btnNext" Grid.Column="3" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Volgende" Click="btnNext_Click"/>
+        <Button Name="btnNext" Grid.Column="3" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Volgende" Click="btnNext_Click" Width="100" Height="30" Background="Yellow"/>
     </Grid>
 </Window>

@@ -1,0 +1,55 @@
+﻿<Window x:Class="WpfApplication1.Learning"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="Learning" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="10*"/>
+
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">
+                        Welke afwijking hoor je in iedere keuze?
+            </TextBlock>
+            <MediaElement Source="C:\Users\angel\Documents\biomedische\Biosignal-recognition-training-tool\WpfApplication1\Heart sounds wav\001. Normal Heart Sound- normal speed.wav" Name="myMediaElement" Width="50" Height="50" LoadedBehavior="Manual" UnloadedBehavior="Stop" Stretch="Fill" MediaEnded="Element_MediaEnded"/>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">            
+            <Button  Width="100" Height="30" Background="Yellow" Click="Button_Home">Home</Button>
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
+            
+            <TextBlock  VerticalAlignment="Center" HorizontalAlignment="Center"  Width="50">Volume:</TextBlock>
+            <Slider Name="volumeSlider" VerticalAlignment="Center" ValueChanged="ChangeMediaVolume" Minimum="0" Maximum="1" Value="0.5" Width="150"/>
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center">
+            <Button  Width="100" Height="30" Background="LightSkyBlue" Click="Button_Click">Submit</Button>
+            <Label Name="lblStatus" Content="Not playing..." HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5" Width="100"/>
+        </StackPanel>
+
+
+
+        <MediaElement x:Name="Audio" Grid.RowSpan="1" LoadedBehavior="Manual" Margin="0,201,0,0"/>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="4" HorizontalAlignment="Center">
+            <Button x:Name="btn1" Content="Keuze 1" Click="Button_Click1" Width="100" Height="30" Background="LightSkyBlue"/>
+            <Button x:Name="btn2" Content="Keuze 2" Click="Button_Click2" Width="100" Height="30" Background="LightSkyBlue"/>
+            <Button x:Name="btn3" Content="Keuze 3" Click="Button_Click3" Width="100" Height="30" Background="LightSkyBlue"/>
+            <Button x:Name="btn4" Content="Keuze 4" Click="Button_Click4" Width="100" Height="30" Background="LightSkyBlue"/>
+            <ComboBox Name="cbAntwoorden" Width="100" Height ="30" Background="LightSkyBlue" SelectionChanged="ComboBox_SelectionChanged" SelectedIndex="0" >
+                
+            </ComboBox>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -26,24 +26,24 @@
         <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" >Speel de mix af en beshrijf wat u hoort in de textvelden onder de juiste deelvragen.</TextBlock>
         <StackPanel Grid.Column="1" Grid.Row="1">
             <StackPanel Orientation="Vertical">
-                <Label Content="Type:"/>
-                <TextBox Name="tbxType" />
+                <Label Name="lblq1" Content="Type:"/>
+                <TextBox Name="tbxQ1" />
             </StackPanel>
             <StackPanel Orientation="Vertical">
-                <Label Content="Eerste afwijking:"/>
-                <TextBox Name="tbxAfwijking1"/>
+                <Label Name="lblq2" Content="Eerste afwijking:"/>
+                <TextBox Name="tbxQ2"/>
             </StackPanel>
             <StackPanel Orientation="Vertical">
-                <Label Content="Tweede afwijking:"/>
-                <TextBox Name="tbxAfwijking2"/>
+                <Label Name="lblq3" Content="Tweede afwijking:"/>
+                <TextBox Name="tbxQ3"/>
             </StackPanel>
             <StackPanel Orientation="Vertical">
-                <Label Content="Derde afwijking:"/>
-                <TextBox Name="tbxAfwijking3"/>
+                <Label Name="lblq4" Content="Derde afwijking:"/>
+                <TextBox Name="tbxQ4"/>
             </StackPanel>
             <StackPanel Orientation="Vertical">
-                <Label Content="Vierde afwijking:"/>
-                <TextBox Name="tbxAfwijking4"/>
+                <Label Name="lblq5" Content="Vierde afwijking:"/>
+                <TextBox Name="tbxQ5"/>
             </StackPanel>
         </StackPanel>
         <Button Name="btnNext" Grid.Column="3" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Volgende" Click="btnNext_Click" Width="100" Height="30" Background="Yellow"/>

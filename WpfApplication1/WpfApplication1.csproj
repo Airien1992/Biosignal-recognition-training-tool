@@ -114,6 +114,7 @@
     <Compile Include="Learning.xaml.cs">
       <DependentUpon>Learning.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Questions.cs" />
     <Compile Include="System\Windows\Forms.cs" />
     <Compile Include="Training.xaml.cs">
       <DependentUpon>Training.xaml</DependentUpon>

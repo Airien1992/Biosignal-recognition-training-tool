@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">
-                        Kies een geluid aan.
+                        Kies een geluid en beluister het.
                 </TextBlock>
             
         </StackPanel>

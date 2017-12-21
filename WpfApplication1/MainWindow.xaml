@@ -83,8 +83,7 @@
                         <TextBox Name="txtbxLocatie" Width="130" Height="30"></TextBox>
                     </StackPanel>
                     <StackPanel Grid.Row="3" Orientation="Horizontal">
-                        <Button HorizontalAlignment="Left"  Name="backButton"  Width="100" Height="30" Background="Yellow">Back</Button>
-                        <Button HorizontalAlignment="Left"  Name="nextButton"  Width="100" Height="30" Background="Yellow" >Next</Button>
+                        
                         <Button HorizontalAlignment="Right"  Name="saveButton"   Click="saveButton_Click" Width="100" Height="30" Background="Yellow">Save changes</Button>
                     </StackPanel>
 

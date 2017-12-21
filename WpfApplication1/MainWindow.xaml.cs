@@ -64,7 +64,7 @@ namespace WpfApplication1
         DataSet1 dataSet = new DataSet1();
             // Load data into the table Table. You can modify this code as needed.
             DataSet1TableAdapters.SoundTableAdapter dataSet1TableTableAdapter = new WpfApplication1.DataSet1TableAdapters.SoundTableAdapter();
-        dataSet1TableTableAdapter.Fill(dataSet.Sound);
+            dataSet1TableTableAdapter.Fill(dataSet.Sound);
             tableDataGrid.DataContext = dataSet.Sound;
         }
 
